@@ -32,8 +32,8 @@ This template is self-contained — no external services required. All media per
 
 **After first successful deploy:**
 
-1. Check the instance is up: `curl https://<your-domain>/health` (returns `{"ok":true,...}`)
-2. Upload a file: `curl -X PUT "https://<your-domain>/api/upload?name=in.mp4" --data-binary @sample.mp4`
+1. Check the instance is up: `curl https://YOUR-RAILWAY-DOMAIN/health` (returns `{"ok":true,...}`)
+2. Upload a file: `curl -X PUT "https://YOUR-RAILWAY-DOMAIN/api/upload?name=in.mp4" --data-binary @sample.mp4`
 
 ## About Hosting
 
@@ -41,9 +41,9 @@ FFmpeg Lite runs as a single container on Railway. Media persists on a Railway v
 
 ## Features
 
-- **Any FFmpeg command** — pass `args` as raw ffmpeg options applied after `-i <input>`
+- **Any FFmpeg command** — pass `args` as raw ffmpeg options applied after the `-i` input
 - **Async job queue** — job ids, statuses, durations, and a 16KB log tail per job
-- **Upload/download** — `PUT /api/upload` (up to 2GB) and `GET /dl/<path>` streaming
+- **Upload/download** — `PUT /api/upload` (up to 2GB) and `GET /dl/FILE` streaming
 - **Concurrency guard** — `MAX_CONCURRENT` cap, returns 429 when saturated
 - **Job timeout** — per-job cap (`JOB_TIMEOUT_MS`, 30 min default)
 - **Health check** — `/health` reports ffmpeg version and active job count
@@ -81,7 +81,7 @@ curl -X POST https://your-domain.up.railway.app/api/convert \
 # -> {"ok":true,"job":{"id":"..."}}
 
 # Poll job status
-curl https://your-domain.up.railway.app/api/jobs/<id>
+curl https://your-domain.up.railway.app/api/jobs/JOB_ID
 
 # Download the result
 curl -OJ https://your-domain.up.railway.app/dl/out/in.mp3
@@ -93,7 +93,7 @@ curl https://your-domain.up.railway.app/api/jobs
 curl -X DELETE https://your-domain.up.railway.app/api/files/out/in.mp3
 ```
 
-`args` holds raw FFmpeg output options, applied as `ffmpeg -y -i <input> <args> [output]`.
+`args` holds raw FFmpeg output options, applied as `ffmpeg -y -i INPUT ARGS OUTPUT`.
 
 ## License
 
