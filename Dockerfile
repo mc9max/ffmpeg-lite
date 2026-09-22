@@ -1,7 +1,7 @@
 # FFmpeg Lite — HTTP API wrapper around the jrottenberg/ffmpeg binary.
 # 7.1.2-ubuntu2404 = ffmpeg 7.1.2 compiled on Ubuntu 24.04 (noble) with
-# standard software codecs (libx264/libx265/libvorbis/libopus/libvpx/libaom —
-# no hw accel), exactly what Railway hobby instances provide (no GPU).
+# standard software codecs (libx264/libx265/vorbis/opus/vpx/aom — no hw accel),
+# exactly what Railway hobby instances provide (no GPU).
 FROM jrottenberg/ffmpeg:7.1.2-ubuntu2404
 
 # Node.js for the zero-dependency HTTP wrapper (spec: POST /api/convert).
@@ -15,6 +15,13 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
 # Persistent working dir for inputs/outputs (Railway volume mounts here).
 RUN mkdir -p /data
 WORKDIR /data
+
+# OCI labels: link the ghcr package to its source repo on first push
+# (cannot be set retroactively via REST), and document the image.
+LABEL org.opencontainers.image.source=https://github.com/mc9max/ffmpeg-lite
+LABEL org.opencontainers.image.description="FFmpeg Lite — self-hosted FFmpeg REST API (upload, convert, download) with persistent volume storage"
+LABEL org.opencontainers.image.licenses=MIT
+LABEL org.opencontainers.image.title=ffmpeg-lite
 
 # Thin API server. The base image sets ENTRYPOINT ["ffmpeg"], so ours
 # overrides both ENTRYPOINT and CMD — the container runs the node server,
