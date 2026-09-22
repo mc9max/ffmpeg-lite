@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="FFmpeg Lite">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d3d3d"/>
+      <stop offset="1" stop-color="#161616"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb340"/>
+      <stop offset="1" stop-color="#e2571b"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="54" fill="url(#bg)"/>
+  <rect x="48" y="40" width="160" height="176" rx="20" fill="none" stroke="#5a5a5a" stroke-width="10"/>
+  <g fill="url(#acc)">
+    <rect x="48" y="66" width="22" height="22" rx="5"/>
+    <rect x="48" y="104" width="22" height="22" rx="5"/>
+    <rect x="48" y="142" width="22" height="22" rx="5"/>
+    <rect x="48" y="180" width="22" height="22" rx="5"/>
+  </g>
+  <path d="M128 88 L128 200 L214 144 Z" fill="url(#acc)"/>
+</svg>

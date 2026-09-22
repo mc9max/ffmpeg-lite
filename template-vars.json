@@ -1,0 +1,18 @@
+{
+  "PORT": {
+    "value": "8080",
+    "description": "API port. Railway maps this to the public domain."
+  },
+  "DATA_DIR": {
+    "value": "/data",
+    "description": "Media directory. Must match the volume mount path."
+  },
+  "MAX_CONCURRENT": {
+    "value": "2",
+    "description": "Max simultaneous conversion jobs. Returns 429 when saturated."
+  },
+  "JOB_TIMEOUT_MS": {
+    "value": "1800000",
+    "description": "Per-job timeout in milliseconds before the process is killed (30 min default)."
+  }
+}
