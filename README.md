@@ -6,7 +6,7 @@ Self-hosted FFmpeg with a REST API. Upload media, run any FFmpeg command, and do
 
 Host your own FFmpeg on Railway. This template provisions an FFmpeg 7 conversion API with persistent storage for input and output media.
 
-[![Deploy to Railway](https://railway.app/button.svg)](https://railway.com/deploy/ffmpeg-lite)
+[![Deploy to Railway](https://railway.app/button.svg)](https://railway.com/deploy/Sqvme0)
 
 ## Why Deploy
 
